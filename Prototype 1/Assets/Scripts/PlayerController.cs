@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Variables that will aid in the vehicle's operation
     private float speed = 10.0f;
     private float turnSpeed = 25.0f;
     private float horizontalInput;
@@ -18,10 +19,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Indicate that the player is using the arrow keys
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
-        // Moving the vehicle forward, backward, left, and right
+        // Move the vehicle forward, backward, left, and right
         transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
         transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * horizontalInput);
     }
